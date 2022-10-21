@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "This is a place to help me remember processes and references for doing simple tasks that just take some time to refresh myself on how to do.\nIt will be updated and may change substantially but should always live here.\nSelect the menu item you wish to explore."
+  },
+  {
     "objectID": "Vignettes/git.html",
     "href": "Vignettes/git.html",
     "title": "Getting started with GIT for MacOS",
@@ -26,12 +33,5 @@
     "title": "Getting started with GIT for MacOS",
     "section": "2.3 GitLab via ssh",
     "text": "2.3 GitLab via ssh\nWith an ssh key in place you can now add it to your gitlab account. For more detailed instructions see Gitlab’s guide.\nThe first step is only required based on how you plan on cloning the app the first time, but it can’t hurt to do regardless. This step involves you adding gitlab.com to the list of known hosts. This is done by running the following in terminal:\n\nssh-keyscan -t ed25519 gitlab.com >> ~/.ssh/known_hosts\n\nThe second step is to copy the public key you generated previously. If you followed the naming recommendations in that step, you can run the following in terminal:\n\npbcopy < ~/.ssh/gitlab_ed25519.pub\n\nThis should automatically add the key to your clipboard, but alternatively you can run the following:\n\ncat ~/.ssh/gitlab_ed25519.pub\n\nand manually copy everything that appears after hitting enter (up until the new command prompt line).\nThe third step is to go to your gitlab.com profile preferences, navigate to the section labeled SSH keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g. Hutch Laptop 2022) and paste the public key into the text box below.\nYou should now be ready to clone repositories from gitlab.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of “git@gitlab.com:user_name/repo_name.git” where username and repo are specific to the repo being cloned and the creator of that repo. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called “Clone” that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Copy the path for “Clone with SSH”. If you are using Rstudio’s projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:\n\ngit clone git@gitlab.com:user_name/repo_name.git"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "This is a place to help me remember processes and references for doing simple tasks that just take some time to refresh myself on how to do.\nIt will be updated and may change substantially but should always live here.\nSelect the menu item you wish to explore."
   }
 ]
