@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Getting started with GIT for MacOS</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="git_files/libs/clipboard/clipboard.min.js"></script>
+<script src="git_files/libs/quarto-html/quarto.js"></script>
+<script src="git_files/libs/quarto-html/popper.min.js"></script>
+<script src="git_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="git_files/libs/quarto-html/anchor.min.js"></script>
+<link href="git_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="git_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="git_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="git_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="git_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#installing-git" id="toc-installing-git" class="nav-link active" data-scroll-target="#installing-git"><span class="toc-section-number">1</span>  Installing git</a></li>
+  <li><a href="#connect-git-to-web-service" id="toc-connect-git-to-web-service" class="nav-link" data-scroll-target="#connect-git-to-web-service"><span class="toc-section-number">2</span>  Connect git to web service</a>
+  <ul class="collapse">
+  <li><a href="#decide-method-for-connecting" id="toc-decide-method-for-connecting" class="nav-link" data-scroll-target="#decide-method-for-connecting"><span class="toc-section-number">2.1</span>  Decide method for connecting</a>
+  <ul class="collapse">
+  <li><a href="#https-setup" id="toc-https-setup" class="nav-link" data-scroll-target="#https-setup"><span class="toc-section-number">2.1.1</span>  HTTPS setup</a></li>
+  <li><a href="#ssh-setup" id="toc-ssh-setup" class="nav-link" data-scroll-target="#ssh-setup"><span class="toc-section-number">2.1.2</span>  ssh setup</a></li>
+  </ul></li>
+  <li><a href="#github-via-ssh" id="toc-github-via-ssh" class="nav-link" data-scroll-target="#github-via-ssh"><span class="toc-section-number">2.2</span>  GitHub via ssh</a></li>
+  <li><a href="#gitlab-via-ssh" id="toc-gitlab-via-ssh" class="nav-link" data-scroll-target="#gitlab-via-ssh"><span class="toc-section-number">2.3</span>  GitLab via ssh</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Getting started with GIT for MacOS</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="installing-git" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Installing git</h1>
+<p>MacOS should already come with git. You can test this by running the following code in Terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>git version 2.37.0 (Apple Git-136)</code></pre>
+</div>
+</div>
+<p>If that returns an error you will need to install <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> from the app store. If that fails, you can also install git directly from the <a href="https://git-scm.com/">git</a> website.</p>
+</section>
+<section id="connect-git-to-web-service" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Connect git to web service</h1>
+<p>If you haven’t already, you will need to create an account with one (or more) of the git repo services such as <a href="github.com">Github</a> or <a href="gitlab.com">Gitlab</a>.</p>
+<section id="decide-method-for-connecting" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="decide-method-for-connecting"><span class="header-section-number">2.1</span> Decide method for connecting</h2>
+<p>You can either use <code>HTTPS</code> or <code>ssh</code> protocols. There are pros and cons to each which I will document as I bump into them. HTTPS is generally considered to be easier to setup, but ssh is generally more secure.</p>
+<section id="https-setup" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="https-setup"><span class="header-section-number">2.1.1</span> HTTPS setup</h3>
+<p><span style="color:red">Currently not documented.</span></p>
+</section>
+<section id="ssh-setup" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="ssh-setup"><span class="header-section-number">2.1.2</span> ssh setup</h3>
+<p>Here we will walk through the process of setting up your computer to use the ssh protocol. If you want a more detailed set of instructions, see GitHub’s <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">guide</a> on the same process.</p>
+<p>If you wish to use the ssh protocol, you must first generate an ssh key. To do this run the following code in Terminal. There will be a prompt to add a passphrase but you can just hit enter to not use a passphrase.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In all the code chunks below, you should replace <code>website</code> and <code>key_id_comment</code> to be specific towards your use-case. See next two notes below this code chunk for more explanation on what they are for.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> ed25519 <span class="at">-f</span> ~/.ssh/website_ed25519 <span class="at">-C</span> <span class="st">"key_id_comment"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You should use different keys for different sites that require an ssh key, but you don’t have to. If you want to use the same key then instead of substituting website in <code>-f ~/.ssh/website_ed25519</code> with the website for the key (e.g.&nbsp;<code>-f ~/.ssh/github_ed25519</code>), you can remove that section altogether. By default, <code>ssh-keygen -t ed25519 -C "key_id_comment"</code> will place a key named <code>id_ed25519</code> in <code>~/.ssh</code>.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>key_id_comment</code> is just something to help you identify the key, but not something you absolutely need. I usually make it the same as the website I am using (e.g.&nbsp;“github.com”). If you don’t want to use it, remove <code>-C "key_id_comment"</code>.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ed25519 is one algorithm used to create ssh keys but it may not be the best one for you. See <a href="https://www.ssh.com/academy/ssh/keygen">here</a> for more information.</p>
+</div>
+</div>
+<p>Next you will need to add the key to the ssh agent. First start the ssh agent by running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="fu">ssh-agent</span> <span class="at">-s</span><span class="va">)</span><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Newer MacOS users will need to create a config file in the .ssh folder, if it hasn’t already been created. To do so, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> ~/.ssh/config</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then using whatever method you prefer (e.g.&nbsp;vim, Rstudio, etc.), open the file and add the following lines:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Host</span> website.com</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">AddKeysToAgent</span> yes</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">IdentityFile</span> ~/.ssh/website_ed25519</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, add the key to the ssh agent by running:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-add</span> ~/.ssh/website_ed25519</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You will need to repeat these steps for each website you wish to have a unique key for. If you exit the terminal, you will need to restart the ssh agent (via the <code>eval</code> command). You also won’t need to recreate the config file (via the <code>touch</code> command), but you will need to edit it to include new lines for the new Host and Identity files.</p>
+</section>
+</section>
+<section id="github-via-ssh" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="github-via-ssh"><span class="header-section-number">2.2</span> GitHub via ssh</h2>
+<p>With an ssh key in place you can now add it to your github account. For more detailed instructions see Github’s <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">guide</a>.</p>
+<p>The first step is only required based on how you plan on cloning the app the first time, but it can’t hurt to do regardless. This step involves you adding github.com to the list of known hosts. This is done by running the following in terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keyscan</span> <span class="at">-t</span> ed25519 github.com <span class="op">&gt;&gt;</span> ~/.ssh/known_hosts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The second step is to copy the public key you generated previously. If you followed the naming recommendations in that step, you can run the following in terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/github_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This should automatically add the key to your clipboard, but alternatively you can run the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/github_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and manually copy everything that appears after hitting enter (up until the new command prompt line).</p>
+<p>The third step is to go to your github.com profile settings, navigate to the section labeled SSH and GBG keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g.&nbsp;Hutch Laptop 2022) and paste the public key into the text box below.</p>
+<p>You should now be ready to clone repositories from github.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of “git@github.com:user_name/repo_name.git.git” where username and repo are specific to the repo being cloned. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called “Code” that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Select “SSH” and the correct path will appear. If you are using Rstudio’s projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:user_name/repo_name.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="gitlab-via-ssh" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="gitlab-via-ssh"><span class="header-section-number">2.3</span> GitLab via ssh</h2>
+<p>With an ssh key in place you can now add it to your gitlab account. For more detailed instructions see Gitlab’s <a href="https://docs.gitlab.com/ee/user/ssh.html">guide</a>.</p>
+<p>The first step is only required based on how you plan on cloning the app the first time, but it can’t hurt to do regardless. This step involves you adding gitlab.com to the list of known hosts. This is done by running the following in terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keyscan</span> <span class="at">-t</span> ed25519 gitlab.com <span class="op">&gt;&gt;</span> ~/.ssh/known_hosts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The second step is to copy the public key you generated previously. If you followed the naming recommendations in that step, you can run the following in terminal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/gitlab_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This should automatically add the key to your clipboard, but alternatively you can run the following:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.ssh/gitlab_ed25519.pub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>and manually copy everything that appears after hitting enter (up until the new command prompt line).</p>
+<p>The third step is to go to your gitlab.com profile preferences, navigate to the section labeled SSH keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g.&nbsp;Hutch Laptop 2022) and paste the public key into the text box below.</p>
+<p>You should now be ready to clone repositories from gitlab.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of “git@gitlab.com:user_name/repo_name.git” where username and repo are specific to the repo being cloned and the creator of that repo. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called “Clone” that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Copy the path for “Clone with SSH”. If you are using Rstudio’s projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@gitlab.com:user_name/repo_name.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
