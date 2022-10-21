@@ -86,26 +86,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<script src="git_files/libs/clipboard/clipboard.min.js"></script>
-<script src="git_files/libs/quarto-html/quarto.js"></script>
-<script src="git_files/libs/quarto-html/popper.min.js"></script>
-<script src="git_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="git_files/libs/quarto-html/anchor.min.js"></script>
-<link href="git_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="git_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="git_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="git_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="git_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
 
 
 </head>
 
 <body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#installing-git" id="toc-installing-git" class="nav-link active" data-scroll-target="#installing-git"><span class="toc-section-number">1</span>  Installing git</a></li>
@@ -121,7 +149,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -256,7 +285,7 @@ Note
 </div>
 <p>and manually copy everything that appears after hitting enter (up until the new command prompt line).</p>
 <p>The third step is to go to your github.com profile settings, navigate to the section labeled SSH and GBG keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g.&nbsp;Hutch Laptop 2022) and paste the public key into the text box below.</p>
-<p>You should now be ready to clone repositories from github.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of “git@github.com:user_name/repo_name.git.git” where username and repo are specific to the repo being cloned. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called “Code” that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Select “SSH” and the correct path will appear. If you are using Rstudio’s projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:</p>
+<p>You should now be ready to clone repositories from github.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of “git@github.com:user_name/repo_name.git” where username and repo are specific to the repo being cloned. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called “Code” that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Select “SSH” and the correct path will appear. If you are using Rstudio’s projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:user_name/repo_name.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -282,11 +311,12 @@ Note
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@gitlab.com:user_name/repo_name.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
