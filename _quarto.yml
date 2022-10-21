@@ -6,7 +6,10 @@ website:
   title: "Tech Guides"
   sidebar:
     style: "floating"
-    contents: auto
+    contents: 
+      - index.qmd
+      - section: Vignettes
+        contents: Vignettes/*
 
 format:
   html:
