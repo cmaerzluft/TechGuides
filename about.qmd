@@ -1,0 +1,9 @@
+---
+title: "Welcome"
+---
+
+This is a place to help me remember processes and references for doing simple tasks that just take some time to refresh myself on how to do.
+
+It will be updated and may change substantially but should always live here.
+
+Select the menu item you wish to explore.

@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "This is a place to help me remember processes and references for doing simple tasks that just take some time to refresh myself on how to do.\nIt will be updated and may change substantially but should always live here.\nSelect the menu item you wish to explore."
+  },
+  {
     "objectID": "Vignettes/git.html",
     "href": "Vignettes/git.html",
     "title": "Getting started with GIT for MacOS",

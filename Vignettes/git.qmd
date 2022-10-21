@@ -27,13 +27,14 @@ If you haven't already, you will need to create an account with one (or more) of
 You can either use `HTTPS` or `ssh` protocols. There are pros and cons to each which I will document as I bump into them. HTTPS is generally considered to be easier to setup, but ssh is generally more secure.
 
 ### HTTPS setup
-<span style="color:red">Currently not documented.</span>
+
+[Currently not documented.]{style="color:red"}
 
 ### ssh setup
 
-Here we will walk through the process of setting up your computer to use the ssh protocol. If you want a more detailed set of instructions, see GitHub's [guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on the same process. 
+Here we will walk through the process of setting up your computer to use the ssh protocol. If you want a more detailed set of instructions, see GitHub's [guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) on the same process.
 
-If you wish to use the ssh protocol, you must first generate an ssh key. To do this run the following code in Terminal. There will be a prompt to add a passphrase but you can just hit enter to not use a passphrase. 
+If you wish to use the ssh protocol, you must first generate an ssh key. To do this run the following code in Terminal. There will be a prompt to add a passphrase but you can just hit enter to not use a passphrase.
 
 ::: callout-note
 In all the code chunks below, you should replace `website` and `key_id_comment` to be specific towards your use-case. See next two notes below this code chunk for more explanation on what they are for.
@@ -57,18 +58,21 @@ ed25519 is one algorithm used to create ssh keys but it may not be the best one 
 :::
 
 Next you will need to add the key to the ssh agent. First start the ssh agent by running:
+
 ```{bash}
 #| eval: false
 eval "$(ssh-agent -s)"
 ```
 
 Newer MacOS users will need to create a config file in the .ssh folder, if it hasn't already been created. To do so, run:
+
 ```{bash}
 #| eval: false
 touch ~/.ssh/config
 ```
 
 Then using whatever method you prefer (e.g. vim, Rstudio, etc.), open the file and add the following lines:
+
 ``` bash
 Host website.com
   AddKeysToAgent yes
@@ -76,6 +80,7 @@ Host website.com
 ```
 
 Finally, add the key to the ssh agent by running:
+
 ```{bash}
 #| eval: false
 ssh-add ~/.ssh/website_ed25519
@@ -88,18 +93,21 @@ You will need to repeat these steps for each website you wish to have a unique k
 With an ssh key in place you can now add it to your github account. For more detailed instructions see Github's [guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 The first step is only required based on how you plan on cloning the app the first time, but it can't hurt to do regardless. This step involves you adding github.com to the list of known hosts. This is done by running the following in terminal:
+
 ```{bash}
 #| eval: false
 ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
 ```
 
 The second step is to copy the public key you generated previously. If you followed the naming recommendations in that step, you can run the following in terminal:
+
 ```{bash}
 #| eval: false
 pbcopy < ~/.ssh/github_ed25519.pub
 ```
 
 This should automatically add the key to your clipboard, but alternatively you can run the following:
+
 ```{bash}
 #| eval: false
 cat ~/.ssh/github_ed25519.pub
@@ -109,7 +117,8 @@ and manually copy everything that appears after hitting enter (up until the new 
 
 The third step is to go to your github.com profile settings, navigate to the section labeled SSH and GBG keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g. Hutch Laptop 2022) and paste the public key into the text box below.
 
-You should now be ready to clone repositories from github.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of "git@github.com:user_name/repo_name.git" where username and repo are specific to the repo being cloned. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called "Code" that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Select "SSH" and the correct path will appear. If you are using Rstudio's projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:
+You should now be ready to clone repositories from github.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of "git\@github.com:user_name/repo_name.git" where username and repo are specific to the repo being cloned. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called "Code" that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Select "SSH" and the correct path will appear. If you are using Rstudio's projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:
+
 ```{bash}
 #| eval: false
 git clone git@github.com:user_name/repo_name.git
@@ -120,18 +129,21 @@ git clone git@github.com:user_name/repo_name.git
 With an ssh key in place you can now add it to your gitlab account. For more detailed instructions see Gitlab's [guide](https://docs.gitlab.com/ee/user/ssh.html).
 
 The first step is only required based on how you plan on cloning the app the first time, but it can't hurt to do regardless. This step involves you adding gitlab.com to the list of known hosts. This is done by running the following in terminal:
+
 ```{bash}
 #| eval: false
 ssh-keyscan -t ed25519 gitlab.com >> ~/.ssh/known_hosts
 ```
 
 The second step is to copy the public key you generated previously. If you followed the naming recommendations in that step, you can run the following in terminal:
+
 ```{bash}
 #| eval: false
 pbcopy < ~/.ssh/gitlab_ed25519.pub
 ```
 
 This should automatically add the key to your clipboard, but alternatively you can run the following:
+
 ```{bash}
 #| eval: false
 cat ~/.ssh/gitlab_ed25519.pub
@@ -141,7 +153,8 @@ and manually copy everything that appears after hitting enter (up until the new 
 
 The third step is to go to your gitlab.com profile preferences, navigate to the section labeled SSH keys, and add a new ssh key. There is a button which opens a popup window. You will provide a name for the key (e.g. Hutch Laptop 2022) and paste the public key into the text box below.
 
-You should now be ready to clone repositories from gitlab.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of "git@gitlab.com:user_name/repo_name.git" where username and repo are specific to the repo being cloned and the creator of that repo. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called "Clone" that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Copy the path for "Clone with SSH". If you are using Rstudio's projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:
+You should now be ready to clone repositories from gitlab.com. When using an ssh key to clone git repos, you cannot use the https URL in the clone command. The appropriate path will be something along the lines of "git\@gitlab.com:user_name/repo_name.git" where username and repo are specific to the repo being cloned and the creator of that repo. You can find the correct path by going to the git repo you wish to clone. On the main page of the repo, there will be a box called "Clone" that gives a drop-down menu if you click on it. In the drop-down, you will see options for cloning the repo. Copy the path for "Clone with SSH". If you are using Rstudio's projects to create a project from git, that path can be pasted into repository URL box. If you are using the command line git function the code will look something like:
+
 ```{bash}
 #| eval: false
 git clone git@gitlab.com:user_name/repo_name.git
