@@ -13,7 +13,4 @@ knitr::opts_chunk$set(
 
 # TechGuides
 
-<!-- badges: start -->
-<!-- badges: end -->
-
-The goal of TechGuides is to ...
+https://cmaerzluft.github.io/TechGuides/
